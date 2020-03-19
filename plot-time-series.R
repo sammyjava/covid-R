@@ -1,7 +1,7 @@
 ## plot selected regions across time
 
 ## places we'd like to see that have been loaded into the confirmed dataframe
-places = c("Hubei", "Iran", "Italy", "Spain", "UK", "WA", "CA", "NY", "WI", "NM")
+places = c("Hubei", "Iran", "Italy", "Spain", "France", "UK", "WA", "CA", "NY", "WI", "NM")
 
 ## start with Hubei since it's the largest
 plot(confirmed[,places[1]], log="y", pch=19, col=1,
@@ -28,5 +28,5 @@ text(10, 1.50^10, "50% per day", col="gray", pos=4, offset=0.1)
 text(10, 1.25^10, "25% per day", col="gray", pos=4, offset=0.1)
 
 ## the legend
-legend(x="topleft", legend=places, pch=19, col=1:length(places))
+legend(x="topleft", bty="n", legend=places, pch=19, col=1:length(places))
 

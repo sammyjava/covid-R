@@ -71,6 +71,7 @@ confirmed$Iran  = as.numeric(csv[csv$Country.Region=="Iran", -(1:4)])
 confirmed$Italy = as.numeric(csv[csv$Country.Region=="Italy", -(1:4)])
 confirmed$Spain = as.numeric(csv[csv$Country.Region=="Spain", -(1:4)])
 confirmed$UK    = as.numeric(csv[csv$Country.Region=="United Kingdom" & csv$Province.State=="United Kingdom", -(1:4)])
+confirmed$France= as.numeric(csv[csv$Country.Region=="France" & csv$Province.State=="France", -(1:4)])
 
 ## interesting provinces
 confirmed$Hubei = as.numeric(csv[csv$Country.Region=="China" & csv$Province.State=="Hubei", -(1:4)]) 
