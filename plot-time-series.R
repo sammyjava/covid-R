@@ -1,14 +1,9 @@
 ## plot selected regions across time
 
-##  [1] "WA"    "NY"    "CA"    "MA"    "GA"    "CO"    "FL"    "NJ"    "OR"   
-## [10] "TX"    "IL"    "PA"    "IA"    "NC"    "SC"    "TN"    "VA"    "AZ"   
-## [19] "IN"    "KY"    "DC"    "NV"    "NH"    "MN"    "NE"    "OH"    "RI"   
-## [28] "WI"    "CT"    "HI"    "OK"    "UT"    "KA"    "LA"    "MO"    "VT"   
-## [37] "AK"    "AR"    "DE"    "ID"    "ME"    "MI"    "MS"    "NM"    "ND"   
-## [46] "SD"    "WV"    "WY"    "Iran"  "Italy" "Spain" "Hubei"
-
+## places we'd like to see that have been loaded into the confirmed dataframe
 places = c("Hubei", "Iran", "Italy", "Spain", "UK", "WA", "CA", "NY", "WI", "NM")
 
+## start with Hubei since it's the largest
 plot(confirmed[,places[1]], log="y", pch=19, col=1,
      ylim=c(1,max(confirmed[,places[1]])),
      ylab="Confirmed COVID-19 Cases",
@@ -17,19 +12,21 @@ plot(confirmed[,places[1]], log="y", pch=19, col=1,
      sub=paste("plotted",date())
      )
 
+## continue with the rest
 for (i in 2:length(places)) {
     points(confirmed[,places[i]], pch=19, col=i)
 }
 
+## guide lines for various growth rates
 lines(0:nrow(confirmed), 2.00^(0:nrow(confirmed)), col="gray")
 lines(0:nrow(confirmed), 1.75^(0:nrow(confirmed)), col="gray")
 lines(0:nrow(confirmed), 1.50^(0:nrow(confirmed)), col="gray")
 lines(0:nrow(confirmed), 1.25^(0:nrow(confirmed)), col="gray")
-
 text(10, 2.00^10, "100% per day", col="gray", pos=4, offset=0.1)
 text(10, 1.75^10, "75% per day", col="gray", pos=4, offset=0.1)
 text(10, 1.50^10, "50% per day", col="gray", pos=4, offset=0.1)
 text(10, 1.25^10, "25% per day", col="gray", pos=4, offset=0.1)
 
+## the legend
 legend(x="topleft", legend=places, pch=19, col=1:length(places))
 
