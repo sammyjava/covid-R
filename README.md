@@ -7,3 +7,5 @@ covid-R
 COVID-19
 ```
 Grab the data from here: https://github.com/CSSEGISandData/COVID-19.git
+
+And yes, the way I'm loading data for each region (because I have to transpose the CSV from Johns Hopkins) is embarrassingly stupid, but I'm way better at Emacs than I am at R. :)
