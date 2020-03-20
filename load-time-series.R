@@ -14,7 +14,21 @@ csv = read.csv(file="../COVID-19/csse_covid_19_data/csse_covid_19_time_series/ti
 ## row names are dates
 confirmed = data.frame(row.names=sub("X", "", colnames(csv)[-(1:4)]))
 
-## load the states a very stupid way but R is driving me nuts
+## interesting countries
+confirmed$Denmark = as.numeric(csv[csv$Country.Region=="Denmark" & csv$Province.State=="Denmark", -(1:4)])
+confirmed$France = as.numeric(csv[csv$Country.Region=="France" & csv$Province.State=="France", -(1:4)])
+confirmed$Germany = as.numeric(csv[csv$Country.Region=="Germany",-(1:4)])
+confirmed$Iran  = as.numeric(csv[csv$Country.Region=="Iran", -(1:4)])
+confirmed$Italy = as.numeric(csv[csv$Country.Region=="Italy", -(1:4)])
+confirmed$Spain = as.numeric(csv[csv$Country.Region=="Spain", -(1:4)])
+confirmed$Sweden = as.numeric(csv[csv$Country.Region=="Sweden", -(1:4)])
+confirmed$SKorea = as.numeric(csv[csv$Country.Region=="Korea, South",-(1:4)])
+confirmed$UK    = as.numeric(csv[csv$Country.Region=="United Kingdom" & csv$Province.State=="United Kingdom", -(1:4)])
+
+## interesting provinces
+confirmed$Hubei = as.numeric(csv[csv$Country.Region=="China" & csv$Province.State=="Hubei", -(1:4)]) 
+
+## all the states, loaded in a very stupid way but Emacs exists
 confirmed$WA = as.numeric(csv[csv$Country.Region=="US" & csv$Province.State=="Washington", -(1:4)])
 confirmed$NY = as.numeric(csv[csv$Country.Region=="US" & csv$Province.State=="New York", -(1:4)])
 confirmed$CA = as.numeric(csv[csv$Country.Region=="US" & csv$Province.State=="California", -(1:4)])
@@ -66,13 +80,4 @@ confirmed$SD = as.numeric(csv[csv$Country.Region=="US" & csv$Province.State=="So
 confirmed$WV = as.numeric(csv[csv$Country.Region=="US" & csv$Province.State=="West Virginia", -(1:4)])
 confirmed$WY = as.numeric(csv[csv$Country.Region=="US" & csv$Province.State=="Wyoming", -(1:4)])
 
-## interesting countries
-confirmed$Iran  = as.numeric(csv[csv$Country.Region=="Iran", -(1:4)])
-confirmed$Italy = as.numeric(csv[csv$Country.Region=="Italy", -(1:4)])
-confirmed$Spain = as.numeric(csv[csv$Country.Region=="Spain", -(1:4)])
-confirmed$UK    = as.numeric(csv[csv$Country.Region=="United Kingdom" & csv$Province.State=="United Kingdom", -(1:4)])
-confirmed$France= as.numeric(csv[csv$Country.Region=="France" & csv$Province.State=="France", -(1:4)])
-
-## interesting provinces
-confirmed$Hubei = as.numeric(csv[csv$Country.Region=="China" & csv$Province.State=="Hubei", -(1:4)]) 
 
