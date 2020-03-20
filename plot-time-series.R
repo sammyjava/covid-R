@@ -46,15 +46,13 @@ for (i in 2:length(places)) {
     points(confirmed[,places[i]], pch=pch[i], col=i)
 }
 
-## guide lines for various growth rates
-lines(0:nrow(confirmed), 2.00^(0:nrow(confirmed)), col="gray")
-lines(0:nrow(confirmed), 1.75^(0:nrow(confirmed)), col="gray")
-lines(0:nrow(confirmed), 1.50^(0:nrow(confirmed)), col="gray")
-lines(0:nrow(confirmed), 1.25^(0:nrow(confirmed)), col="gray")
-text(10, 2.00^10, "100% per day", col="gray", pos=4, offset=0.1)
-text(10, 1.75^10, "75% per day", col="gray", pos=4, offset=0.1)
-text(10, 1.50^10, "50% per day", col="gray", pos=4, offset=0.1)
-text(10, 1.25^10, "25% per day", col="gray", pos=4, offset=0.1)
+## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
+text(20, 300, "Doubling time", col="gray", pos=1)
+for (i in 1:4) {
+    f = 2.0^(1/i)
+    lines(0:nrow(confirmed), f^(0:nrow(confirmed)), col="gray")
+    text(log(100)/log(f), 100, paste(i,"days"), col="gray", pos=4, offset=0.2)
+}
 
 ## the legend
 legend(x="topleft", bty="n", legend=places, pch=pch, col=1:length(places))
