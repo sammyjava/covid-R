@@ -27,7 +27,7 @@
 source("load-time-series.R")
 
 ## places we'd like to see that have been loaded into the confirmed dataframe
-places = c("Hubei", "Italy", "Iran", "Spain", "Germany", "France", "SKorea", "UK", "Sweden", "Denmark", "NY", "WA", "CA", "WI", "AZ", "NM")
+places = c("Hubei", "Italy", "Iran", "Spain", "France", "SKorea", "NY", "UK", "Sweden", "Denmark", "WA", "CA", "Brazil", "WI", "AZ", "NM")
 
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
@@ -47,12 +47,26 @@ for (i in 2:length(places)) {
 }
 
 ## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
-text(20, 300, "Doubling time", col="gray", pos=1)
+xMean = 0
+y = 100
 for (i in 1:4) {
     f = 2.0^(1/i)
     lines(0:nrow(confirmed), f^(0:nrow(confirmed)), col="gray")
-    text(log(100)/log(f), 100, paste(i,"days"), col="gray", pos=4, offset=0.2)
+    x = log(100)/log(f)
+    days = "days"
+    if (i==1) days = "day"
+    text(x, y, paste(i,days), col="gray", pos=1, offset=0.2)
+    xMean = xMean + x
 }
+xMean = xMean/4
+text(xMean, y*2, "doubling time", col="gray", pos=1)
+
+
+## ## guide lines for daily doubling at various starting dates
+## f = 2.0
+## for (i in 2:6*10) {
+##     lines(0:nrow(confirmed)+i, f^(0:nrow(confirmed)), col="gray")
+## }
 
 ## the legend
 legend(x="topleft", bty="n", legend=places, pch=pch, col=1:length(places))

@@ -15,6 +15,7 @@ csv = read.csv(file="../COVID-19/csse_covid_19_data/csse_covid_19_time_series/ti
 confirmed = data.frame(row.names=sub("X", "", colnames(csv)[-(1:4)]))
 
 ## interesting countries
+confirmed$Brazil = as.numeric(csv[csv$Country.Region=="Brazil",-(1:4)])
 confirmed$Denmark = as.numeric(csv[csv$Country.Region=="Denmark" & csv$Province.State=="Denmark", -(1:4)])
 confirmed$France = as.numeric(csv[csv$Country.Region=="France" & csv$Province.State=="France", -(1:4)])
 confirmed$Germany = as.numeric(csv[csv$Country.Region=="Germany",-(1:4)])
