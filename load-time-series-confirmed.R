@@ -1,4 +1,9 @@
-## load the CSSE time series CSV
+## load the CSSE time series CSVs
+##
+## time_series_19-covid-Deaths.csv
+## time_series_19-covid-Recovered.csv
+## time_series_19-covid-Confirmed.csv
+##
 ##     1              2                  3        4    5        6        7        ...
 ##     Province.State Country.Region     Lat      Long X1.22.20 X1.23.20 X1.24.20 ...
 ## 1                        Thailand 15.0000  101.0000        2        3        5
@@ -8,7 +13,7 @@
 ## 5                        Malaysia  2.5000  112.5000        0        0        0
 ## 6 British Columbia         Canada 49.2827 -123.1207        0        0        0
 
-## Assume that the COVID-19 GitHub repo is next door
+## Confirmed (assume that the COVID-19 GitHub repo is next door)
 csv = read.csv(file="../COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv", header=TRUE)
 
 ## row names are dates
