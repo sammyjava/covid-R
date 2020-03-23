@@ -32,11 +32,15 @@ places = c("Hubei", "Italy", "Iran", "Spain", "France", "SKorea", "NY", "UK", "S
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
 
+## back off from scientific notation
+options(scipen=5)
+
 ## start with Hubei since it's the largest
 plot(confirmed[,places[1]], log="y", pch=pch[1], col=1,
      ylim=c(1,max(confirmed[,places[1]])),
      ylab="Confirmed COVID-19 Cases",
      xlab="Days after 22 Jan 2020",
+     yaxp=c(1,6,1), yaxs="r", 
      main="Data: GitHub CSSEGISandData/COVID-19",
      sub=paste("plotted",date(),"MDT")
      )
