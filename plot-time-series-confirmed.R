@@ -27,7 +27,7 @@
 source("load-time-series-confirmed.R")
 
 ## places we'd like to see that have been loaded into the confirmed dataframe
-places = c("Hubei", "Italy", "Iran", "Spain", "France", "SKorea", "NY", "UK", "Sweden", "Denmark", "WA", "CA", "Brazil", "WI", "AZ", "NM")
+places = c("Hubei", "Italy", "US", "Spain", "Germany", "Iran", "France", "SKorea", "UK", "Sweden", "Denmark", "Russia")
 
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
@@ -37,7 +37,7 @@ options(scipen=5)
 
 ## start with Hubei since it's the largest
 plot(confirmed[,places[1]], log="y", pch=pch[1], col=1,
-     ylim=c(1,max(confirmed)),
+     ylim=c(1,max(confirmed,na.rm=TRUE)),
      ylab="Confirmed COVID-19 CASES",
      xlab="Days after 22 Jan 2020",
      yaxp=c(1,6,1), yaxs="r", 

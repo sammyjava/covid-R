@@ -1,33 +1,10 @@
 ## plot selected regions across time
 ##
-##     Province.State Country.Region X3.19.20
-## 12                        Germany    15320
-## 17                          Italy    41035
-## 18                         Sweden     1439
-## 19                          Spain    17963
-## 21                        Belgium     1795
-## 32                    Switzerland     4075
-## 33                        Austria     2013
-## 40                         Norway     1746
-## 99      Washington             US     1376
-## 100       New York             US     5365
-## 155          Hubei          China    67800
-## 156                          Iran    18407
-## 157                  Korea, South     8565
-## 158         France         France    10871
-## 159      Guangdong          China     1378
-## 160          Henan          China     1273
-## 161       Zhejiang          China     1233
-## 162          Hunan          China     1018
-## 171        Denmark        Denmark     1151
-## 404 United Kingdom United Kingdom     2689
-## 441    Netherlands    Netherlands     2460
-
 ## may as well refresh the load
 source("load-time-series-deaths.R")
 
-## places we'd like to see that have been loaded into the deaths dataframe
-places = c("Hubei", "Italy", "Iran", "Spain", "France", "SKorea", "NY", "UK", "Sweden", "Denmark", "WA", "CA", "Brazil", "WI", "AZ", "NM")
+## places we'd like to see that have been loaded into the confirmed dataframe
+places = c("Hubei", "Italy", "US", "Spain", "Germany", "Iran", "France", "SKorea", "UK", "Sweden", "Denmark", "Russia")
 
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
@@ -37,7 +14,7 @@ options(scipen=5)
 
 ## start with Hubei since it's the largest
 plot(deaths[,places[1]], log="y", pch=pch[1], col=1,
-     ylim=c(1,max(deaths)),
+     ylim=c(1,max(deaths,na.rm=TRUE)),
      ylab="COVID-19 DEATHS",
      xlab="Days after 22 Jan 2020",
      yaxp=c(1,6,1), yaxs="r", 
