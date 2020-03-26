@@ -1,10 +1,10 @@
 ## plot selected regions across time
-##
+
 ## may as well refresh the load
 source("load-time-series-deaths.R")
 
-## places we'd like to see that have been loaded into the confirmed dataframe
-places = c("Hubei", "Italy", "US", "Spain", "Germany", "Iran", "France", "SKorea", "UK", "Sweden", "Denmark", "Russia")
+## places we'd like to see that have been loaded into the deaths dataframe
+places = c("China", "Italy", "US", "Spain", "Germany", "Iran", "France", "SKorea", "UK", "Canada", "Australia", "Sweden", "Denmark", "Poland", "Russia")
 
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
@@ -12,8 +12,12 @@ pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
 ## back off from scientific notation
 options(scipen=5)
 
+## optional data offset
+xmin = 25
+
 ## start with Hubei since it's the largest
 plot(deaths[,places[1]], log="y", pch=pch[1], col=1,
+     xlim=c(xmin, nrow(deaths)),
      ylim=c(1,max(deaths,na.rm=TRUE)),
      ylab="COVID-19 DEATHS",
      xlab="Days after 22 Jan 2020",
@@ -32,8 +36,8 @@ xMean = 0
 y = 100
 for (i in 1:4) {
     f = 2.0^(1/i)
-    lines(0:nrow(deaths), f^(0:nrow(deaths)), col="gray")
-    x = log(100)/log(f)
+    lines(xmin:nrow(deaths), f^((xmin:nrow(deaths)-xmin)), col="gray")
+    x = log(100)/log(f) + xmin
     days = "days"
     if (i==1) days = "day"
     text(x, y, paste(i,days), col="gray", pos=1, offset=0.2)
