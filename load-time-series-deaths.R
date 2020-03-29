@@ -34,7 +34,3 @@ deaths$Poland    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Poland"    
 deaths$Australia = as.numeric(colSums(csv.deaths[csv.deaths$Country.Region=="Australia",-(1:4)]))
 deaths$Canada    = as.numeric(colSums(csv.deaths[csv.deaths$Country.Region=="Canada",-(1:4)]))
 deaths$China     = as.numeric(colSums(csv.deaths[csv.deaths$Country.Region=="China",-(1:4)]))
-
-
-
-

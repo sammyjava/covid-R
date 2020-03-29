@@ -3,8 +3,8 @@
 ## may as well refresh the load
 source("load-time-series-confirmed.R")
 
-## places we'd like to see that have been loaded into the confirmed dataframe
-places = c("China", "Italy", "US", "Spain", "Germany", "Iran", "France", "SKorea", "UK", "Canada", "Australia", "Sweden", "Denmark", "Poland", "Russia")
+## places we'd like to see that have been loaded into the confirmed dataframe; sorted by total deaths
+places = c("Italy", "Spain", "China", "Iran", "France", "US", "UK", "Germany", "SKorea", "Sweden", "Denmark", "Canada", "Poland", "Australia", "Russia")
 
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))

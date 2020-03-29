@@ -3,8 +3,8 @@
 ## may as well refresh the load
 source("load-time-series-deaths.R")
 
-## places we'd like to see that have been loaded into the deaths dataframe
-places = c("China", "Italy", "US", "Spain", "Germany", "Iran", "France", "SKorea", "UK", "Canada", "Australia", "Sweden", "Denmark", "Poland", "Russia")
+## places we'd like to see that have been loaded into the deaths dataframe; SORTED BY TOTAL DEATHS
+places = c("Italy", "Spain", "China", "Iran", "France", "US", "UK", "Germany", "SKorea", "Sweden", "Denmark", "Canada", "Poland", "Australia", "Russia")
 
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
