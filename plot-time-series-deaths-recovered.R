@@ -17,7 +17,7 @@ options(scipen=5)
 xmax = max(recovered)*2
 ymax = max(deaths)*10 
 
-plot(recovered[,places[imax]], deaths[,places[imax]], col=imax, pch=pch[imax],
+plot(recovered[,places[1]], deaths[,places[1]], col=1, pch=pch[1],
      log="xy",
      xlim=c(1,xmax),
      ylim=c(1,ymax),
