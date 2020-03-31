@@ -1,13 +1,9 @@
 ## load the CSSE time series CSVs
 ##
-##     1              2                  3        4    5        6        7        ...
-##     Province.State Country.Region     Lat      Long X1.22.20 X1.23.20 X1.24.20 ...
-## 1                        Thailand 15.0000  101.0000        2        3        5
-## 2                           Japan 36.0000  138.0000        2        1        2
-## 3                       Singapore  1.2833  103.8333        0        1        3
-## 4                           Nepal 28.1667   84.2500        0        0        0
-## 5                        Malaysia  2.5000  112.5000        0        0        0
-## 6 British Columbia         Canada 49.2827 -123.1207        0        0        0
+## global files:
+## csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv
+## csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv
+## csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv
 
 ## Deaths (assume that the COVID-19 GitHub repo is next door)
 csv.deaths = read.csv(file="../COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv", header=TRUE)

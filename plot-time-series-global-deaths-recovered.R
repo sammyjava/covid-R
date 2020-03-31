@@ -1,8 +1,8 @@
 ## plot selected regions across time
 
 ## may as well refresh the load
-source("load-time-series-deaths.R")
-source("load-time-series-recovered.R")
+source("load-time-series-global-deaths.R")
+source("load-time-series-global-recovered.R")
 
 ## places we'd like to see that have been loaded into the confirmed dataframe; sorted by total deaths
 places = c("Italy", "Spain", "China", "Iran", "France", "US", "UK", "Germany", "SKorea", "Sweden", "Denmark", "Canada", "Poland", "Australia", "Russia")

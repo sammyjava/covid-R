@@ -1,10 +1,10 @@
 ## plot selected regions across time
 
 ## may as well refresh the load
-source("load-time-series-deaths.R")
+source("load-time-series-US-deaths.R")
 
 ## places we'd like to see that have been loaded into the deaths dataframe; SORTED BY TOTAL DEATHS
-places = c("Italy", "Spain", "China", "Iran", "France", "US", "UK", "Germany", "SKorea", "Sweden", "Denmark", "Canada", "Poland", "Australia", "Russia")
+places = c("NY", "WA", "CA", "FL", "LA", "NM", "WI")
 
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
@@ -13,12 +13,12 @@ pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
 options(scipen=5)
 
 ## optional data offset
-xmin = 25
+xmin = 50
 
 ## start with Hubei since it's the largest
-plot(deaths[,places[1]], log="y", pch=pch[1], col=1,
-     xlim=c(xmin, nrow(deaths)),
-     ylim=c(1,max(deaths,na.rm=TRUE)),
+plot(cumsum(usdeaths[,places[1]]), log="y", pch=pch[1], col=1,
+     xlim=c(xmin, nrow(usdeaths)),
+     ylim=c(1,max(colSums(usdeaths))),
      ylab="COVID-19 DEATHS",
      xlab="Days after 22 Jan 2020",
      yaxp=c(1,6,1), yaxs="r", 
@@ -28,16 +28,16 @@ plot(deaths[,places[1]], log="y", pch=pch[1], col=1,
 
 ## continue with the rest
 for (i in 2:length(places)) {
-    points(deaths[,places[i]], pch=pch[i], col=i)
+    points(cumsum(usdeaths[,places[i]]), pch=pch[i], col=i)
 }
 
 ## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
 xMean = 0
-y = 100
+y = 10
 for (i in 1:4) {
     f = 2.0^(1/i)
-    lines(xmin:nrow(deaths), f^((xmin:nrow(deaths)-xmin)), col="gray")
-    x = log(100)/log(f) + xmin
+    lines(xmin:nrow(usdeaths), f^((xmin:nrow(usdeaths)-xmin)), col="gray")
+    x = log(y)/log(f) + xmin
     days = "days"
     if (i==1) days = "day"
     text(x, y, paste(i,days), col="gray", pos=1, offset=0.2)
@@ -45,13 +45,6 @@ for (i in 1:4) {
 }
 xMean = xMean/4
 text(xMean, y*2, "doubling time", col="gray", pos=1)
-
-
-## ## guide lines for daily doubling at various starting dates
-## f = 2.0
-## for (i in 2:6*10) {
-##     lines(0:nrow(deaths)+i, f^(0:nrow(deaths)), col="gray")
-## }
 
 ## the legend
 legend(x="topleft", bty="n", legend=places, pch=pch, col=1:length(places))

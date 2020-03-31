@@ -1,9 +1,9 @@
 ## plot selected regions across time
 
 ## may as well refresh the load
-source("load-time-series-confirmed.R")
+source("load-time-series-global-deaths.R")
 
-## places we'd like to see that have been loaded into the confirmed dataframe; sorted by total deaths
+## places we'd like to see that have been loaded into the deaths dataframe; SORTED BY TOTAL DEATHS
 places = c("Italy", "Spain", "China", "Iran", "France", "US", "UK", "Germany", "SKorea", "Sweden", "Denmark", "Canada", "Poland", "Australia", "Russia")
 
 ## los simbolos
@@ -16,10 +16,10 @@ options(scipen=5)
 xmin = 25
 
 ## start with Hubei since it's the largest
-plot(confirmed[,places[1]], log="y", pch=pch[1], col=1,
-     xlim=c(xmin, nrow(confirmed)),
-     ylim=c(1,max(confirmed,na.rm=TRUE)),
-     ylab="Confirmed COVID-19 CASES",
+plot(deaths[,places[1]], log="y", pch=pch[1], col=1,
+     xlim=c(xmin, nrow(deaths)),
+     ylim=c(1,max(deaths,na.rm=TRUE)),
+     ylab="COVID-19 DEATHS",
      xlab="Days after 22 Jan 2020",
      yaxp=c(1,6,1), yaxs="r", 
      main="Data: GitHub CSSEGISandData/COVID-19",
@@ -28,7 +28,7 @@ plot(confirmed[,places[1]], log="y", pch=pch[1], col=1,
 
 ## continue with the rest
 for (i in 2:length(places)) {
-    points(confirmed[,places[i]], pch=pch[i], col=i)
+    points(deaths[,places[i]], pch=pch[i], col=i)
 }
 
 ## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
@@ -36,7 +36,7 @@ xMean = 0
 y = 100
 for (i in 1:4) {
     f = 2.0^(1/i)
-    lines(xmin:nrow(confirmed), f^((xmin:nrow(confirmed)-xmin)), col="gray")
+    lines(xmin:nrow(deaths), f^((xmin:nrow(deaths)-xmin)), col="gray")
     x = log(100)/log(f) + xmin
     days = "days"
     if (i==1) days = "day"
@@ -45,6 +45,13 @@ for (i in 1:4) {
 }
 xMean = xMean/4
 text(xMean, y*2, "doubling time", col="gray", pos=1)
+
+
+## ## guide lines for daily doubling at various starting dates
+## f = 2.0
+## for (i in 2:6*10) {
+##     lines(0:nrow(deaths)+i, f^(0:nrow(deaths)), col="gray")
+## }
 
 ## the legend
 legend(x="topleft", bty="n", legend=places, pch=pch, col=1:length(places))
