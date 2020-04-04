@@ -29,6 +29,7 @@ confirmed$UK        = as.numeric(csv.confirmed[csv.confirmed$Country.Region=="Un
 confirmed$US        = as.numeric(csv.confirmed[csv.confirmed$Country.Region=="US"             & csv.confirmed$Province.State=="",-(1:4)])
 confirmed$Russia    = as.numeric(csv.confirmed[csv.confirmed$Country.Region=="Russia"         & csv.confirmed$Province.State=="",-(1:4)])
 confirmed$Poland    = as.numeric(csv.confirmed[csv.confirmed$Country.Region=="Poland"         & csv.confirmed$Province.State=="",-(1:4)])
+confirmed$Israel    = as.numeric(csv.confirmed[csv.confirmed$Country.Region=="Israel"         & csv.confirmed$Province.State=="",-(1:4)])
 
 ## countries that require summing over provinces
 confirmed$Australia = as.numeric(colSums(csv.confirmed[csv.confirmed$Country.Region=="Australia",-(1:4)]))

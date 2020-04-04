@@ -25,6 +25,7 @@ deaths$UK        = as.numeric(csv.deaths[csv.deaths$Country.Region=="United King
 deaths$US        = as.numeric(csv.deaths[csv.deaths$Country.Region=="US"             & csv.deaths$Province.State=="",-(1:4)])
 deaths$Russia    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Russia"         & csv.deaths$Province.State=="",-(1:4)])
 deaths$Poland    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Poland"         & csv.deaths$Province.State=="",-(1:4)])
+deaths$Israel    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Israel"         & csv.deaths$Province.State=="",-(1:4)])
 
 ## countries that require summing over provinces
 deaths$Australia = as.numeric(colSums(csv.deaths[csv.deaths$Country.Region=="Australia",-(1:4)]))

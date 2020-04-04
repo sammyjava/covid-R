@@ -20,6 +20,7 @@ recovered$UK        = as.numeric(csv.recovered[csv.recovered$Country.Region=="Un
 recovered$US        = as.numeric(csv.recovered[csv.recovered$Country.Region=="US"             & csv.recovered$Province.State=="",-(1:4)])
 recovered$Russia    = as.numeric(csv.recovered[csv.recovered$Country.Region=="Russia"         & csv.recovered$Province.State=="",-(1:4)])
 recovered$Poland    = as.numeric(csv.recovered[csv.recovered$Country.Region=="Poland"         & csv.recovered$Province.State=="",-(1:4)])
+recovered$Israel    = as.numeric(csv.recovered[csv.recovered$Country.Region=="Israel"         & csv.recovered$Province.State=="",-(1:4)])
 
 ## countries that require summing over provinces
 recovered$Australia = as.numeric(colSums(csv.recovered[csv.recovered$Country.Region=="Australia",-(1:4)]))

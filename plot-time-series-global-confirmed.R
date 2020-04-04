@@ -4,7 +4,7 @@
 source("load-time-series-global-confirmed.R")
 
 ## places we'd like to see that have been loaded into the confirmed dataframe; sorted by total deaths
-places = c("Italy", "Spain", "China", "Iran", "France", "US", "UK", "Germany", "SKorea", "Sweden", "Denmark", "Canada", "Poland", "Australia", "Russia")
+source("places.R")
 
 ## los simbolos
 pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
