@@ -6,19 +6,21 @@ source("load-time-series-global-confirmed.R")
 ## places we'd like to see that have been loaded into the confirmed dataframe; sorted by total deaths
 source("places.R")
 
-## los simbolos
-pch = c(rep(1,8), rep(2,8), rep(3,8), rep(4,8))
+## los colores y simbolos
+col = c(1:6, 1:6, 1:6, 1:6)
+pch = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6))
 
 ## back off from scientific notation
 options(scipen=5)
 
 ## optional data offset
-xmin = 25
+xmin = 30
+ymin = 100
 
 ## start with Hubei since it's the largest
-plot(confirmed[,places[1]], log="y", pch=pch[1], col=1,
+plot(confirmed[,places[1]], log="y", pch=pch[1], col=col[1],
      xlim=c(xmin, nrow(confirmed)),
-     ylim=c(1,max(confirmed,na.rm=TRUE)),
+     ylim=c(ymin, max(confirmed,na.rm=TRUE)),
      ylab="Confirmed COVID-19 CASES",
      xlab="Days after 22 Jan 2020",
      yaxp=c(1,6,1), yaxs="r", 
@@ -28,7 +30,7 @@ plot(confirmed[,places[1]], log="y", pch=pch[1], col=1,
 
 ## continue with the rest
 for (i in 2:length(places)) {
-    points(confirmed[,places[i]], pch=pch[i], col=i)
+    points(confirmed[,places[i]], pch=pch[i], col=col[i])
 }
 
 ## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
@@ -47,5 +49,5 @@ xMean = xMean/4
 text(xMean, y*2, "doubling time", col="gray", pos=1)
 
 ## the legend
-legend(x="topleft", bty="n", legend=places, pch=pch, col=1:length(places))
+legend(x="topleft", bty="n", legend=places, pch=pch, col=col)
 
