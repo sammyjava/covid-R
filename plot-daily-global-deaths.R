@@ -14,14 +14,17 @@ pch = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6))
 options(scipen=5)
 
 ## optional data offset
-xmin = 30
-ymin = 1
+xmin = 35
+ymin = 10
+ymax = 2000
 
-## start with Hubei since it's the largest
-plot(deaths[,places[1]], log="y", pch=pch[1], col=col[1],
-     xlim=c(xmin, nrow(deaths)),
-     ylim=c(ymin, max(deaths,na.rm=TRUE)),
-     ylab="CUMULATIVE COVID-19 DEATHS",
+imax = nrow(deaths)
+imax1 = imax -1
+## start with 1 since it's the largest
+plot(deaths[-1,places[1]]-deaths[-imax1,places[1]], log="y", pch=pch[1], col=col[1],
+     xlim=c(xmin, imax1),
+     ylim=c(ymin, ymax),
+     ylab="DAILY COVID-19 DEATHS",
      xlab="Days after 22 Jan 2020",
      yaxp=c(1,6,1), yaxs="r", 
      main="Data: GitHub CSSEGISandData/COVID-19",
@@ -30,23 +33,23 @@ plot(deaths[,places[1]], log="y", pch=pch[1], col=col[1],
 
 ## continue with the rest
 for (i in 2:length(places)) {
-    points(deaths[,places[i]], pch=pch[i], col=col[i])
+    points(deaths[-1,places[i]]-deaths[-imax1,places[i]], pch=pch[i], col=col[i])
 }
 
-## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
-xMean = 0
-y = 100
-for (i in 1:4) {
-    f = 2.0^(1/i)
-    lines(xmin:nrow(deaths), f^((xmin:nrow(deaths)-xmin)), col="gray")
-    x = log(100)/log(f) + xmin
-    days = "days"
-    if (i==1) days = "day"
-    text(x, y, paste(i,days), col="gray", pos=1, offset=0.2)
-    xMean = xMean + x
-}
-xMean = xMean/4
-text(xMean, y*2, "doubling time", col="gray", pos=1)
+## ## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
+## xMean = 0
+## y = 100
+## for (i in 1:4) {
+##     f = 2.0^(1/i)
+##     lines(xmin:nrow(deaths), f^((xmin:nrow(deaths)-xmin)), col="gray")
+##     x = log(100)/log(f) + xmin
+##     days = "days"
+##     if (i==1) days = "day"
+##     text(x, y, paste(i,days), col="gray", pos=1, offset=0.2)
+##     xMean = xMean + x
+## }
+## xMean = xMean/4
+## text(xMean, y*2, "doubling time", col="gray", pos=1)
 
 
 ## ## guide lines for daily doubling at various starting dates
