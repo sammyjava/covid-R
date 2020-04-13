@@ -14,13 +14,15 @@ pch = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6))
 options(scipen=5)
 
 ## optional data offset
-xmin = 30
-ymin = 1
+xmin = 40
+xmax = nrow(deaths)
+ymin = 10
+ymax = max(deaths,na.rm=TRUE)
 
 ## start with Hubei since it's the largest
 plot(deaths[,places[1]], log="y", pch=pch[1], col=col[1],
-     xlim=c(xmin, nrow(deaths)),
-     ylim=c(ymin, max(deaths,na.rm=TRUE)),
+     xlim=c(xmin, xmax),
+     ylim=c(ymin, ymax),
      ylab="CUMULATIVE COVID-19 DEATHS",
      xlab="Days after 22 Jan 2020",
      yaxp=c(1,6,1), yaxs="r", 
