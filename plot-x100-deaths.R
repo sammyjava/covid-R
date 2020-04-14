@@ -16,7 +16,7 @@ options(scipen=5)
 ## optional data offset
 npts = nrow(deaths)
 xmin = 0
-xmax = 40
+xmax = 50
 ymin = 90
 ymax = max(deaths,na.rm=TRUE)
 
@@ -59,5 +59,7 @@ for (i in 2:length(places)) {
 ## }
 
 ## the legend
-legend(x="topleft", bty="n", legend=places, pch=pch, col=col)
+legend(x="topleft", bty="n",
+       legend=paste(places,deaths[npts,places]),
+       pch=pch, col=col)
 
