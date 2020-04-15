@@ -14,8 +14,8 @@ pch = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6))
 options(scipen=5)
 
 ## optional data offset
-xmin = 30
-ymin = 100
+xmin = 35
+ymin = 10
 
 ## start with Hubei since it's the largest
 plot(confirmed[,places[1]], log="y", pch=pch[1], col=col[1],
@@ -49,5 +49,8 @@ xMean = xMean/4
 text(xMean, y*2, "doubling time", col="gray", pos=1)
 
 ## the legend
-legend(x="topleft", bty="n", legend=places, pch=pch, col=col)
+legend(x="topleft", bty="o", bg="white",
+       legend=paste(places,confirmed[npts,places]),
+       pch=pch, col=col, cex=1.0)
+
 

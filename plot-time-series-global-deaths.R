@@ -14,7 +14,7 @@ pch = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6))
 options(scipen=5)
 
 ## optional data offset
-xmin = 40
+xmin = 35
 xmax = nrow(deaths)
 ymin = 10
 ymax = max(deaths,na.rm=TRUE)
@@ -50,13 +50,9 @@ for (i in 1:4) {
 xMean = xMean/4
 text(xMean, y*2, "doubling time", col="gray", pos=1)
 
-
-## ## guide lines for daily doubling at various starting dates
-## f = 2.0
-## for (i in 2:6*10) {
-##     lines(0:nrow(deaths)+i, f^(0:nrow(deaths)), col="gray")
-## }
-
 ## the legend
-legend(x="topleft", bty="n", legend=places, pch=pch, col=col)
+legend(x="topleft", bty="o", bg="white",
+       legend=paste(places,deaths[npts,places]),
+       pch=pch, col=col, cex=1.0)
+
 

@@ -36,28 +36,6 @@ for (i in 2:length(places)) {
     points(c(1:npts)-x100[i], deaths[,places[i]], pch=pch[i], col=col[i])
 }
 
-## ## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
-## xMean = 0
-## y = 100
-## for (i in 1:4) {
-##     f = 2.0^(1/i)
-##     lines(xmin:nrow(deaths), f^((xmin:nrow(deaths)-xmin)), col="gray")
-##     x = log(100)/log(f) + xmin
-##     days = "days"
-##     if (i==1) days = "day"
-##     text(x, y, paste(i,days), col="gray", pos=1, offset=0.2)
-##     xMean = xMean + x
-## }
-## xMean = xMean/4
-## text(xMean, y*2, "doubling time", col="gray", pos=1)
-
-
-## ## guide lines for daily doubling at various starting dates
-## f = 2.0
-## for (i in 2:6*10) {
-##     lines(0:nrow(deaths)+i, f^(0:nrow(deaths)), col="gray")
-## }
-
 ## the legend
 legend(x="topleft", bty="n",
        legend=paste(places,deaths[npts,places]),
