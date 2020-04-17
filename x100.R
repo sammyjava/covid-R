@@ -16,7 +16,6 @@
 ## 207                   Switzerland     1239
 
 
-
-places = c("US", "Italy", "Spain", "France", "UK", "Iran", "Belgium", "China", "Germany", "Netherlands", "Brazil", "Turkey", "Switzerland", "Sweden")
-x100 =   c(  56,      43,      51,       54,   57,     44,        62,       7,        61,            59,       67,       67,            62,       68)
+places = c("US", "Italy", "Spain", "France", "UK", "Iran", "Belgium", "Germany", "China", "Netherlands", "Brazil", "Turkey", "Sweden", "Switzerland")
+100 =   c(  56,      43,      51,       54,   57,     44,        62,        61,       7,            59,       67,       67,       68,            62)
 
