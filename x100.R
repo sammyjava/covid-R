@@ -15,7 +15,6 @@
 ## 206                        Sweden     1203
 ## 207                   Switzerland     1239
 
-
-places = c("US", "Italy", "Spain", "France", "UK", "Iran", "Belgium", "Germany", "China", "Netherlands", "Brazil", "Turkey", "Sweden", "Switzerland")
-100 =   c(  56,      43,      51,       54,   57,     44,        62,        61,       7,            59,       67,       67,       68,            62)
+places = c("US", "Italy", "Spain", "France", "UK", "Belgium", "Iran", "China", "Germany", "Netherlands", "Brazil", "Turkey", "Sweden", "Switzerland")
+x100 =   c(  56,      43,      51,       54,   57,        62,     44,       7,        61,            59,       67,       67,       68,            62)
 
