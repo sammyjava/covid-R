@@ -5,9 +5,6 @@
 ## csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv
 ## csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv
 
-places = c("US", "Italy", "Spain", "France", "UK", "Iran", "Belgium", "China", "Germany", "Netherlands", "Brazil", "Turkey", "Sweden", "Switzerland")
-
-
 ## Deaths (assume that the COVID-19 GitHub repo is next door)
 csv.deaths = read.csv(file="../COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv", header=TRUE)
 
