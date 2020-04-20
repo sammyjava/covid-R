@@ -13,13 +13,13 @@ pch = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6))
 ## back off from scientific notation
 options(scipen=5)
 
-## optional data offset
+npts = nrow(confirmed)
 xmin = 35
 ymin = 10
 
 ## start with Hubei since it's the largest
 plot(confirmed[,places[1]], log="y", pch=pch[1], col=col[1],
-     xlim=c(xmin, nrow(confirmed)),
+     xlim=c(xmin, npts),
      ylim=c(ymin, max(confirmed,na.rm=TRUE)),
      ylab="Confirmed COVID-19 CASES",
      xlab="Days after 22 Jan 2020",
@@ -38,7 +38,7 @@ xMean = 0
 y = 100
 for (i in 1:4) {
     f = 2.0^(1/i)
-    lines(xmin:nrow(confirmed), f^((xmin:nrow(confirmed)-xmin)), col="gray")
+    lines(xmin:npts, f^((xmin:npts-xmin)), col="gray")
     x = log(100)/log(f) + xmin
     days = "days"
     if (i==1) days = "day"

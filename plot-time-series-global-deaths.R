@@ -14,8 +14,9 @@ pch = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6))
 options(scipen=5)
 
 ## optional data offset
+npts = nrow(deaths)
 xmin = 35
-xmax = nrow(deaths)
+xmax = npts
 ymin = 10
 ymax = max(deaths,na.rm=TRUE)
 
@@ -40,7 +41,7 @@ xMean = 0
 y = 100
 for (i in 1:4) {
     f = 2.0^(1/i)
-    lines(xmin:nrow(deaths), f^((xmin:nrow(deaths)-xmin)), col="gray")
+    lines(xmin:npts, f^((xmin:npts-xmin)), col="gray")
     x = log(100)/log(f) + xmin
     days = "days"
     if (i==1) days = "day"

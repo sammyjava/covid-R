@@ -13,9 +13,9 @@ pch = c(rep(1,6), rep(2,6), rep(3,6), rep(4,6))
 ## back off from scientific notation
 options(scipen=5)
 
-## optional data offset
+npts = nrow(deaths)
 xmin = 35
-xmax = nrow(deaths)
+xmax = npts
 ymin = 1
 ymax = max(deaths[npts,places]/popmil,na.rm=TRUE)
 
@@ -39,5 +39,3 @@ for (i in 2:length(places)) {
 legend(x="topleft", bty="o", bg="white",
        legend=paste(places,round(deaths[npts,places]/popmil,1)),
        pch=pch, col=col, cex=1.0)
-
-
