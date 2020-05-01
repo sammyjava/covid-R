@@ -15,7 +15,7 @@ options(scipen=5)
 
 npts = nrow(confirmed)
 xmin = 35
-ymin = 10
+ymin = 100
 
 ## start with Hubei since it's the largest
 plot(confirmed[,places[1]], log="y", pch=pch[1], col=col[1],

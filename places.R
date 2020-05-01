@@ -15,6 +15,6 @@
 ## 206                        Sweden     1203
 ## 207                   Switzerland     1239
 
-places = c("US", "Italy", "Spain", "France", "UK", "Belgium", "Germany", "Iran", "China", "Netherlands", "Brazil", "Turkey", "Sweden", "Switzerland")
-x100   = c(  56,      43,      51,       54,   57,        62,        61,     44,        7,            59,       67,       67,       68,            62)
-popmil = c(328.2,   60.3,    47.0,     67.1, 67.9,      11.5,      83.1,   83.2,   1427.6,          17.4,    210.1,     83.2,     10.3,          8.57)
+places = c("US", "Italy", "Spain", "France", "UK", "Belgium", "Germany", "Iran", "Brazil", "Netherlands", "China", "Canada", "Turkey", "Sweden", "Mexico", "Switzerland", "Ireland", "India")
+popmil = c(328.2,   60.3,    47.0,     67.1, 67.9,      11.5,      83.1,   83.2,    210.1,          17.4,  1427.6,     37.9,    83.2,     10.3,     128.6,          8.57,      6.57,  1352.6)
+x100   = c(  56,      43,      51,       54,   57,        62,        61,     44,       67,            59,       7,       70,      67,       68,        75,            62,        72,      75)

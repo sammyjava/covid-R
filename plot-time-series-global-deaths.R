@@ -17,7 +17,7 @@ options(scipen=5)
 npts = nrow(deaths)
 xmin = 35
 xmax = npts
-ymin = 10
+ymin = 100
 ymax = max(deaths,na.rm=TRUE)
 
 ## start with Hubei since it's the largest

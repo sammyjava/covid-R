@@ -31,6 +31,9 @@ deaths$SKorea    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Korea, Sout
 deaths$Russia    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Russia"         & csv.deaths$Province.State=="",-(1:4)])
 deaths$Poland    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Poland"         & csv.deaths$Province.State=="",-(1:4)])
 deaths$Israel    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Israel"         & csv.deaths$Province.State=="",-(1:4)])
+deaths$Mexico    = as.numeric(csv.deaths[csv.deaths$Country.Region=="Mexico"         & csv.deaths$Province.State=="",-(1:4)])
+deaths$Ireland   = as.numeric(csv.deaths[csv.deaths$Country.Region=="Ireland"        & csv.deaths$Province.State=="",-(1:4)])
+deaths$India     = as.numeric(csv.deaths[csv.deaths$Country.Region=="India"          & csv.deaths$Province.State=="",-(1:4)])
 
 ## countries that require summing over provinces
 deaths$China     = as.numeric(colSums(csv.deaths[csv.deaths$Country.Region=="China",-(1:4)]))
