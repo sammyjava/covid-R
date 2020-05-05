@@ -33,20 +33,20 @@ for (i in 2:length(places)) {
     points(confirmed[,places[i]], pch=pch[i], col=col[i])
 }
 
-## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
-xMean = 0
-y = 100
-for (i in 1:4) {
-    f = 2.0^(1/i)
-    lines(xmin:npts, f^((xmin:npts-xmin)), col="gray")
-    x = log(100)/log(f) + xmin
-    days = "days"
-    if (i==1) days = "day"
-    text(x, y, paste(i,days), col="gray", pos=1, offset=0.2)
-    xMean = xMean + x
-}
-xMean = xMean/4
-text(xMean, y*2, "doubling time", col="gray", pos=1)
+## ## guide lines for various doubling times -- change the position of "Doubling time" as time goes on
+## xMean = 0
+## y = 100
+## for (i in 1:4) {
+##     f = 2.0^(1/i)
+##     lines(xmin:npts, f^((xmin:npts-xmin)), col="gray")
+##     x = log(100)/log(f) + xmin
+##     days = "days"
+##     if (i==1) days = "day"
+##     text(x, y, paste(i,days), col="gray", pos=1, offset=0.2)
+##     xMean = xMean + x
+## }
+## xMean = xMean/4
+## text(xMean, y*2, "doubling time", col="gray", pos=1)
 
 ## the legend
 legend(x="topleft", bty="o", bg="white",
