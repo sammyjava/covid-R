@@ -24,12 +24,12 @@
 ## 224 United Kingdom   28734
 ## 226             US   68922
 
-places = c("US", "Italy", "UK", "Spain", "France", "Belgium", "Brazil", "Germany", "Iran", "Netherlands",
+places = c("US", "UK", "Italy", "Spain", "France", "Brazil", "Belgium", "Germany", "Iran", "Netherlands",
            "China", "Canada", "Turkey", "Sweden", "Mexico", "Switzerland", "Ecuador", "India", "Russia",  "Peru", "Ireland", 
            "Portugal")
-popmil = c(328.2,   60.3,  67.9,  47.0,     67.1,       11.5,   210.1,   83.1,   83.2,     17.4,
+popmil = c(328.2, 67.9, 60.3,    47.0,    67.1,     210.1,    11.5,      83.1,   83.2,     17.4,
            1427.6,   37.9,    83.2,      10.3,     128.6,    8.57,          17.1,      1352.6,  146.7,     32.8,   6.57,    
            10.3)
-x100   = c(56,      43,    57,   51,      54,       62,        67,       61,        44,     59,
+x100   = c(56,      57,   43,    51,      54,       67,       62,      61,        44,     59,
            7,        70,       67,       68,       75,       62,            71,        75,      80,        77,     72,      
            67)
