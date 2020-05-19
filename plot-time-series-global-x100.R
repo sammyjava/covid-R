@@ -16,7 +16,7 @@ options(scipen=5)
 ## optional data offset
 npts = nrow(deaths)
 xmin = 0
-xmax = 60
+xmax = 80
 ymin = 90
 ymax = max(deaths,na.rm=TRUE)
 
